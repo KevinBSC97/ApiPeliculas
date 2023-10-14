@@ -1,0 +1,26 @@
+﻿using ApiPeliculas.Modelos;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
+namespace ApiPeliculas.Data
+{
+    public class AppDbContext : DbContext
+    //public class AppDbContext : IdentityDbContext<AppUsuario>
+    {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+
+        }
+
+        //protected override void OnModelCreating(ModelBuilder builder)
+        //{
+        //    base.OnModelCreating(builder);
+        //}
+
+        //Agregar los modelos aqui
+        public DbSet<Categoria> Categoria { get; set; }
+        public DbSet<Pelicula> Pelicula { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
+        //public DbSet<AppUsuario> AppUsuario { get; set; }
+    }
+}
